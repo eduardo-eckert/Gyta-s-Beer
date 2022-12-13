@@ -1,0 +1,31 @@
+<h3 class="text-center">Gerenciar Pedidos</h3>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Cliente</th>
+            <th>Data do pedido</th>
+            <th>Valor total</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pedido of pedidos">
+            <td>{{ pedido.idPedido }}</td>
+            <td>{{ pedido.cpfCliente }}</td>
+            <td>{{pedido.dataPedido | date: 'dd/MM/YYYY hh:mm'}}</td>
+            <td>{{pedido.valorTotal | currency: 'BRL'}}</td>
+            <td [ngSwitch]="pedido.status">
+                <span *ngSwitchCase="0">Em andamento</span>
+                <span *ngSwitchCase="1">Em transito</span>
+                <span *ngSwitchCase="2">Finalizado</span>
+            </td>
+            <td class="d-flex ">
+                <button class="btn btn-outline-danger m-2" (click)="deletar(pedido.idPedido)" >❌</button>
+                <button class="btn btn-outline-primary m-2" (click)="alterarStatus(pedido.idPedido)" >✎</button>
+                <button class="btn btn-outline-success m-2" (click)="acompanhar(pedido.idPedido)">🛵</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

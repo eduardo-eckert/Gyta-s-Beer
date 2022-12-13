@@ -1,0 +1,26 @@
+<h3 class="text-center">Gerenciar Clientes</h3>
+<table class="table text-center ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data de nascimento</th>
+            <th>Pontos de fidelidade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.idCliente }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.cpfCliente }}</td>
+            <td>{{cliente.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ cliente.ptsFidelidade }}</td>
+            <td class="d-flex">
+                <button class="btn btn-outline-danger m-2" (click)="deletar(cliente.cpfCliente)">❌</button>
+                <button class="btn btn-outline-primary m-2" (click)="editar(cliente.idCliente)">🖊</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

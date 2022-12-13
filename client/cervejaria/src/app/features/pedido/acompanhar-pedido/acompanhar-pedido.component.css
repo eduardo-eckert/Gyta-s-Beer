@@ -1,0 +1,42 @@
+h2{
+    text-align: center;
+}
+
+.titulo, .status{
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+.icone{
+    font-size: 50px;
+    padding-top: 20px;
+    color: #f5b235;    
+}
+
+.card{
+    padding-bottom: 15px;
+    color: white;
+    background-color: #a71717;
+    box-shadow: 5px 5px 5px rgb(91, 90, 90);
+}
+
+.progress{
+    border: 1px solid rgb(0, 0, 0);
+    height: 30px;
+}
+
+.andamento{
+    width: 33%;
+}
+
+.transito{
+    width: 66%;
+}
+
+.finalizado{
+    width: 100%;
+}
+
+.acompanhamento{
+    width: 50px;
+}

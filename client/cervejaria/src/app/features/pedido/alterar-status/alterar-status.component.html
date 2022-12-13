@@ -1,0 +1,29 @@
+<h2>Status Pedido</h2>
+<br>
+<div class="row">
+    <div class="col">
+        <p>Pedido: {{pedido.idPedido}}</p>
+    </div>
+</div>
+<div class="row" >
+    <div class="col" [ngSwitch]="pedido.status">
+        <span *ngSwitchCase="0">Status atual: Em andamento</span>
+        <span *ngSwitchCase="1">Status atual: Em transito</span>
+        <span *ngSwitchCase="2">Status atual: Finalizado</span>
+    </div>
+</div>
+<div *ngIf="pedido.idPedido == 2">Pedidos finalizados não podem ter o status alterado!</div>
+<br>
+<form [formGroup]="form" (ngSubmit)="alterarStatus()">
+    <div class="form-group">
+        <label for="currentStatus" class="control-label">Status</label>
+        <select class="form-select" id="status" formControlName="status">
+            <option value="0">Em andamento</option>
+            <option value="1">Em transito</option>
+            <option value="2">Finalizado</option>
+        </select>
+    </div>
+    <br>
+    <input type="submit" value="Salvar" class="btn btn-primary" [disabled]="pedido.idPedido == 2"/>
+    <br>
+</form>

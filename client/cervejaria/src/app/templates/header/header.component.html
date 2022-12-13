@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col-1">
+      <img src="../../../assets/gitaBeer3.png" class="logo" />
+    </div>
+    <div class="col-6 aba-navegacao">
+      <nav class="navbar navbar-expand">
+        <div class="container-fluid menudrop">
+          <a class="navbar-brand" routerLink="/inicio">INÍCIO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  routerLinkActive="active"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  >PRODUTOS</a
+                >
+                <div class="dropdown-menu">
+                  <a routerLink="/produto/cadastrar" class="dropdown-item"
+                    >Cadastrar Produtos</a
+                  >
+                  <a routerLink="/produto/gerenciar" class="dropdown-item"
+                    >Gerenciar Produtos</a
+                  >
+                </div>
+              </div>
+
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  routerLinkActive="active"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  >CLIENTES</a
+                >
+                <div class="dropdown-menu">
+                  <a routerLink="/cliente/cadastrar" class="dropdown-item"
+                    >Cadastrar Clientes</a
+                  >
+                  <a routerLink="/cliente/gerenciar" class="dropdown-item"
+                    >Gerenciar Clientes</a
+                  >
+                </div>
+              </div>
+
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  routerLinkActive="active"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  >PEDIDOS</a
+                >
+                <div class="dropdown-menu">
+                  <a routerLink="/pedido/realizar" class="dropdown-item"
+                    >Realizar Pedido</a
+                  >
+                  <a routerLink="/pedido/gerenciar" class="dropdown-item"
+                    >Gerenciar Pedidos</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

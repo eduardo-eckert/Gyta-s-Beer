@@ -1,0 +1,22 @@
+.m-2:hover{
+    transition: 0.4s;
+    opacity: 0.7;
+}
+.cabecalho{
+    
+    margin-bottom: 50px;
+}
+.dados{
+    align-content: center;
+    align-items: center;
+    
+}
+h2{
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 150px;
+    margin-bottom: 25px;
+}
+.table-warning{
+    justify-content: center!important;
+}

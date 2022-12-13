@@ -1,0 +1,35 @@
+<h3 class="text-center">Novo Pedido</h3>
+<form [formGroup]="form" (ngSubmit)="Realizar()">
+    <br>
+    <div class="form-group">
+        <label for="cpfCliente" class="form-label">CPF</label>
+        <input type="text" class="form-control" formControlName="cpfCliente" id="cpfCliente" autocomplete="off">
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('cpfCliente')?.valid || form.get('cpfCliente')?.pristine">
+        <span *ngIf="form.get('cpfCliente')?.errors?.['pattern']">O cpf deve ter 11 digitos e conter somente números!</span>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="produto" class="control-label">Produto</label>
+        <select class="form-select" id="produto" formControlName="produto">
+            <option *ngFor="let produto of produtos" [ngValue]="produto.idProduto">{{produto.descricao}}</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="qtdProduto" class="form-label">Quantidade</label>
+        <input id="qtdProduto" formControlName="qtdProduto" type="number" class="form-control" autocomplete="off"
+            >
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('qtdProduto')?.valid || form.get('qtdProduto')?.pristine">
+        <span *ngIf="form.get('qtdProduto')?.errors?.['required']">Informar a quantidade é obrigatório!</span>
+        <span *ngIf="form.get('qtdProduto')?.errors?.['min']">A quantidade deve ser maior que zero!</span>
+        <span *ngIf="form.get('qtdProduto')?.errors?.['max']">A quantidade não pode ser maior que a disponível em estoque!</span>
+      </div>
+
+    <br>
+    <button class="btn btn-danger mx-md-2"(click)="Limpar()">Limpar</button>
+    <button type="submit"class="btn btn-primary" [disabled]="!form.valid">Realizar pedido</button>
+    <br>
+
+</form>

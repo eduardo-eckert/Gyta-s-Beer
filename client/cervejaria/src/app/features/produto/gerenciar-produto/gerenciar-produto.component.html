@@ -1,0 +1,28 @@
+<h3 class="text-center">Gerenciar Produtos</h3>
+<table class="table text-center">
+    <thead>
+        <tr class="cabecalho">
+            <th>#</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Quantidade estoque</th>
+            <th>Data validade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody class="dados">
+        <tr *ngFor="let produto of produtos">
+            <td>{{ produto.idProduto }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.preco | currency: 'BRL'}}</td>
+            <td>{{produto.qtdEstoque}}</td>
+            <td>{{ produto.dataValidade | date: 'dd/MM/yyyy'}}</td>
+            <td class="d-flex">
+                <button class="btn btn-outline-success m-2" (click)="desativar(produto)"  *ngIf="produto.ativo">✔</button>
+                <button class="btn btn-outline-danger m-2" (click)="desativar(produto)" *ngIf="!produto.ativo">❌</button>
+                <button class="btn btn-outline-dark m-2" (click)="gerenciarEstoque(produto.idProduto)">📦</button>
+                <button class="btn btn-outline-primary m-2" ((dragstart))="'Oi'" (click)="editar(produto.idProduto)">✎</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

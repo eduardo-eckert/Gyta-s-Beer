@@ -1,0 +1,29 @@
+<h3 class="text-center mb-0">Novo Produto</h3>
+<form [formGroup]="form" (ngSubmit)="Cadastrar()">
+    <br>
+    <div class="form-group">
+        <label for="descricao" class="form-label">Descrição</label>
+        <input id="descricao" formControlName="descricao" type="text" class="form-control" autocomplete="off">
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('descricao')?.valid || form.get('descricao')?.pristine">
+        <span *ngIf="form.get('descricao')?.errors?.['required']">O preço é obrigatório!</span>
+        <span *ngIf="form.get('descricao')?.errors?.['minlength']">O produto precisa ter pelo menos 3 caracteres!</span>
+      </div>    
+    <br>
+    <div class="form-group">
+        <label for="preco" class="form-label">Preço</label>
+        <input id="preco" formControlName="preco" type="number" class="form-control" autocomplete="off">
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('preco')?.valid || form.get('preco')?.pristine">
+        <span *ngIf="form.get('preco')?.errors?.['required']">O preço é obrigatório.</span>
+        <span *ngIf="form.get('preco')?.errors?.['min']">O preço deve ser ao menos R$ 1,00.</span>
+      </div>
+    <br>
+    <div class="form-group">
+        <label for="dataValidade" class="form-label">Data de Validade</label>
+        <input type="date" class="form-control" formControlName="dataValidade" id="dataValidade" autocomplete="off">
+    </div>
+    <br>
+    <button class="btn btn-danger mx-md-2" (click)="limpar()">Limpar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Cadastrar</button> 
+</form>

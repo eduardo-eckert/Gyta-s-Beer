@@ -1,0 +1,23 @@
+<h3>Gerenciar Estoque</h3>
+<div class="row">
+    <div class="col">
+        <span>Produto: {{produto.descricao}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <span>Quantidade: {{produto.qtdEstoque}}</span>
+    </div>
+</div>
+<br>
+<form [formGroup]="form" (ngSubmit)="salvar()">
+<div class="form-group">
+    <label for="qtdEstoque" class="form-label">Quantidade Adicionada</label>
+    <input id="qtdEstoque" formControlName="qtdEstoque" type="number" class="form-control" autocomplete="off">
+</div>
+<div class="alert alert-danger" [hidden]="form.get('qtdEstoque')?.valid || form.get('qtdEstoque')?.pristine">
+    <span *ngIf="form.get('qtdEstoque')?.errors?.['required']">Informar o quantidade é obrigatório!</span>
+    <span *ngIf="form.get('qtdEstoque')?.errors?.['min']">A quantidade deve ser maior que zero!</span>
+  </div>
+<br>
+<input type="submit" value="Salvar" class="btn btn-primary m-1" [disabled]="form.invalid" />    

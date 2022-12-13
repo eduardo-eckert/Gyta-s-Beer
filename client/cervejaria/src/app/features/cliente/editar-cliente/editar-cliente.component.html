@@ -1,0 +1,35 @@
+<h3 class="text-center">Editar Cliente</h3>
+<form [formGroup]="form" (ngSubmit)="editar()">
+    <br>
+    <div class="form-group">
+        <label for="nome" class="custom-label">Nome</label>
+        <input type="text" class="form-control custom-input" formControlName="nome" id="nome" name="nome" 
+        autocomplete="off" [(ngModel)]="cliente.nome">
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('nome')?.valid || form.get('nome')?.pristine">
+        <span *ngIf="form.get('nome')?.errors?.['required']">O nome é obrigatório!</span>
+        <span *ngIf="form.get('nome')?.errors?.['minlength']">O nome precisa ter pelo menos 3 caracteres!</span>
+      </div>
+    <br>
+    <div class="form-group">
+        <label for="cpfCliente" class="form-label">CPF</label>
+        <input id="cpfCliente" formControlName="cpfCliente" type="text" class="form-control" autocomplete="off"
+            [(ngModel)]="cliente.cpfCliente">
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('cpfCliente')?.valid || form.get('cpfCliente')?.pristine">
+        <span *ngIf="form.get('cpfCliente')?.errors?.['required']" >O cpf é obrigatório!</span>
+        <span *ngIf="form.get('cpfCliente')?.errors?.['pattern']">O cpf deve ter 11 digitos e conter somente números!</span>
+      </div>
+    <br>
+    <div class="form-group col-md-4">
+        <label for="dataNascimento" class="custom-label">Data Nascimento</label>
+        <input type="date" class="form-control custom-input" formControlName="dataNascimento" id="dataNascimento"
+            name="dataNascimento" [ngModel]="cliente.dataNascimento| date:'yyyy-MM-dd'" autocomplete="off" required>
+    </div>
+    <div class="alert alert-danger" [hidden]="form.get('dataNascimento')?.valid || form.get('dataNascimento')?.pristine">
+        <span *ngIf="form.get('dataNascimento')?.errors?.['required']">A data de nascimento é obrigatória!</span>
+      </div>
+    <br>
+    <button class="btn btn-danger m-1" (click)="limpar()">Limpar</button>
+    <input type="submit" value="Salvar" class="btn btn-primary m-1" [disabled]="!form.valid" />
+</form>
